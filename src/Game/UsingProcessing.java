@@ -248,7 +248,7 @@ public class UsingProcessing extends PApplet {
         ArrayList<String> frontIndonesia = new ArrayList<>(Arrays.asList("Java Sea",
                 "Mid Pacific","Bay of Bengal","Timor Sea"));
         Territorio indonesia = new Territorio(this, "Indonesia", frontIndonesia,
-                new PVector(1310, 670), 100, 25,null);
+                new PVector(1310, 670), 70, 25,null);
         territorios.add(indonesia);
     }
     public void setupMiddleEast(){
@@ -273,15 +273,70 @@ public class UsingProcessing extends PApplet {
         ArrayList<String> frontIran = new ArrayList<>(Arrays.asList("Pakistan",
                 "Arabian Sea","Turkey","Iraq"));
         Territorio iran = new Territorio(this, "Iran", frontIran,
-                new PVector(1056, 444), 40, 25,null);
+                new PVector(1056, 444), 35, 25,null);
         territorios.add(iran);
 
         ArrayList<String> frontTurkey = new ArrayList<>(Arrays.asList("Pakistan",
-                "Black Sea","Iran","Iraq","Pakistan","Kazakh"));
+                "Black Sea","Iran","Iraq","Pakistan","Kazakh","Sea of Crete","Middle East"));
         Territorio turkey = new Territorio(this, "Turkey", frontTurkey,
-                new PVector(1056, 444), 40, 25,null);
+                new PVector(991, 384), 40, 25,null);
         territorios.add(turkey);
 
+        ArrayList<String> frontPakistan = new ArrayList<>(Arrays.asList("Turkey",
+                "Iran","Tibet","India","Kazakh","Arabian Sea"));
+        Territorio pakistan = new Territorio(this, "Pakistan", frontPakistan,
+                new PVector(1107, 433), 50, 25,null);
+        territorios.add(pakistan);
+
+    }
+    public void setupChina(){
+        ArrayList<String> frontManchuria = new ArrayList<>(Arrays.asList("Buryatsk",
+                "Mongolia","Sea of Japan"));
+        Territorio manchuria = new Territorio(this, "Manchuria", frontManchuria,
+                new PVector(1256, 341), 60, 25,null);
+        territorios.add(manchuria);
+
+        ArrayList<String> frontMongolia = new ArrayList<>(Arrays.asList("Buryatsk",
+                "Manchuria","Sea of Japan","Shantung","Tibet","Kazakh"));
+        Territorio mongolia = new Territorio(this, "Mongolia", frontMongolia,
+                new PVector(1226,378 ), 60, 25,null);
+        territorios.add(mongolia);
+
+        ArrayList<String> frontTibet = new ArrayList<>(Arrays.asList("Mongolia",
+                "Nanling","Shantung","Kazakh","Pakistan","India"));
+        Territorio tibet = new Territorio(this, "Tibet", frontTibet,
+                new PVector(1171,423 ), 40, 25,null);
+        territorios.add(tibet);
+
+        ArrayList<String> frontShantung = new ArrayList<>(Arrays.asList("Mongolia",
+                "Nanling","Tibet","Sea of Japan"));
+        Territorio shantung = new Territorio(this, "Shantung", frontShantung,
+                new PVector(1270,412 ), 60, 25,null);
+        territorios.add(shantung);
+
+        ArrayList<String> frontNanling = new ArrayList<>(Arrays.asList("India",
+                "Shantung","Tibet","Sea of Japan","South China Sea","Burma","Indo-China"));
+        Territorio nanling = new Territorio(this, "Nanling", frontNanling,
+                new PVector(1263,444 ), 60, 25,null);
+        territorios.add(nanling);
+
+        ArrayList<String> frontIndia = new ArrayList<>(Arrays.asList("Tibet",
+                "Arabian Sea","Bay of Bengal","Burma","Nanling","Pakistan"));
+        Territorio india = new Territorio(this, "India", frontIndia,
+                new PVector(1175, 509), 50, 25,null);
+        territorios.add(india);
+
+        ArrayList<String> frontBurma = new ArrayList<>(Arrays.asList("Indo-China",
+                "Java Sea","Bay of Bengal","India","Nanling"));
+        Territorio burma = new Territorio(this, "Burma", frontBurma,
+                new PVector(1248, 505), 45, 25,null);
+        territorios.add(burma);
+
+        ArrayList<String> frontIndoChina = new ArrayList<>(Arrays.asList("Burma",
+                "Java Sea","South China Sea","Nanling"));
+        Territorio indoChina = new Territorio(this, "Indo-China", frontIndoChina,
+                new PVector(1309, 505), 60, 25,null);
+        territorios.add(indoChina);
     }
     public void setupMarAzulClaro(){
         // South America
@@ -561,6 +616,9 @@ public class UsingProcessing extends PApplet {
         setupOceania();
         // Middle East
         setupMiddleEast();
+        //China & India
+        setupChina();
+
         
     }
 
