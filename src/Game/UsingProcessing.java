@@ -6,6 +6,7 @@ import java.util.*;
 
 public class UsingProcessing extends PApplet {
     private ArrayList<Territorio> territorios = new ArrayList<>();
+    private ArrayList<Botao> botoes = new ArrayList<>();
 	PImage mapa;
     // The argument passed to main must match the class name
     public static void main(String[] args) {
@@ -320,6 +321,12 @@ public class UsingProcessing extends PApplet {
                 new PVector(1263,444 ), 60, 25,null);
         territorios.add(nanling);
 
+        ArrayList<String> frontJapan = new ArrayList<>(Arrays.asList("Sea of Japan",
+                "Tokyo Bay","Sea of Okhotsk"));
+        Territorio japan = new Territorio(this, "Japan", frontJapan,
+                new PVector(1380,378 ), 40, 25,null);
+        territorios.add(japan);
+
         ArrayList<String> frontIndia = new ArrayList<>(Arrays.asList("Tibet",
                 "Arabian Sea","Bay of Bengal","Burma","Nanling","Pakistan"));
         Territorio india = new Territorio(this, "India", frontIndia,
@@ -592,10 +599,7 @@ public class UsingProcessing extends PApplet {
         territorios.add(greatAusBlight);
 
     }
-    // identical use to setup in Processing IDE except for size()
-    public void setup(){
-    	this.mapa = loadImage("supremacymap.png");
-        image(this.mapa, 0, 0);
+    public void setupMapa(){
         // South America
         setupSouthAmerica();
         // Central America
@@ -618,8 +622,47 @@ public class UsingProcessing extends PApplet {
         setupMiddleEast();
         //China & India
         setupChina();
+    }
 
-        
+    public void setupBotoesEstagio(){
+        // Pagar Salarios
+        int botoesX=1707,salarioY=109;
+        int width=120, height=30;
+        Botao botaoSalario = new Botao(this,"Pagar Salarios",new PVector(botoesX,salarioY),width,height);
+        botoes.add(botaoSalario);
+
+        // Vender Suprimentos
+        int venderY=159;
+        Botao botaoSuprimentos = new Botao(this,"Vender Suprimentos",new PVector(botoesX,venderY),width,height);
+        botoes.add(botaoSuprimentos);
+
+        // Atacar
+        int atacarY=209;
+        Botao botaoAtacar = new Botao(this,"Atacar",new PVector(botoesX,atacarY),width,height);
+        botoes.add(botaoAtacar);
+
+        // Movimentar tropas
+        int movimentarY=259;
+        Botao botaoMovimentar = new Botao(this,"Movimentar Tropas",new PVector(botoesX,movimentarY),width,height);
+        botoes.add(botaoMovimentar);
+
+        // Construir
+        int contruirY=309;
+        Botao botaoConstruir = new Botao(this,"Construir",new PVector(botoesX,contruirY),width,height);
+        botoes.add(botaoConstruir);
+
+        // Comprar
+        int comprarY=359;
+        Botao botaoComprar = new Botao(this,"Comprar Suprimentos",new PVector(botoesX,comprarY),width,height);
+        botoes.add(botaoComprar);
+    }
+    // identical use to setup in Processing IDE except for size()
+    public void setup(){
+    	this.mapa = loadImage("supremacymap.png");
+        image(this.mapa, 0, 0);
+
+        setupMapa();
+        setupBotoesEstagio();
     }
 
     // identical use to draw in Prcessing IDE
@@ -627,14 +670,18 @@ public class UsingProcessing extends PApplet {
         for (int i = 0; i < territorios.size(); i++) {
             territorios.get(i).show();
         }
+        for (int i = 0; i < botoes.size(); i++) {
+            botoes.get(i).show();
+        }
     }
+
     public void mouseClicked() {
     	int x = mouseX;
     	int y = mouseY;
         System.out.println(x+"|"+y);
         for (int i = 0; i < territorios.size(); i++) {
             Territorio territorio = territorios.get(i);
-
+            //Função pro territorio
             if(territorio.isPointInside(x, y)) {
                 ArrayList<String> fronteiras = territorio.getFronteiras();
                 for (int j = 0; j < fronteiras.size(); j++) {
@@ -642,8 +689,33 @@ public class UsingProcessing extends PApplet {
                     Territorio fronteira = Territorio.getTerritorio(territorios, fronteiras.get(j));
                     if(fronteira != null) {
                         Territorio.highlight(fronteira);
-
                     }
+                }
+            }
+        }
+
+        for (int i = 0; i < botoes.size(); i++) {
+            Botao botao = botoes.get(i);
+            if (botao.isPointInside(x,y)){
+                switch (botao.getName()){
+                    case "Pagar Salarios":
+                        JOptionPane.showMessageDialog(null,"Selecione as tropas e companhias");
+                        break;
+                    case "Vender Suprimentos":
+                        JOptionPane.showMessageDialog(null,"Selecione o suprimento para vender");
+                        break;
+                    case "Atacar":
+                        JOptionPane.showMessageDialog(null,"Selecione a tropa e o territorio para atacar");
+                        break;
+                    case "Movimentar Tropas":
+                        JOptionPane.showMessageDialog(null,"Selecione a tropa e o caminho para o territorio desejado");
+                        break;
+                    case "Construir":
+                        JOptionPane.showMessageDialog(null,"Selecione o que deseje construir");
+                        break;
+                    case "Comprar Suprimentos":
+                        JOptionPane.showMessageDialog(null,"Selecione o suprimento desejado");
+                        break;
                 }
             }
         }

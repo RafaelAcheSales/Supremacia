@@ -33,24 +33,16 @@ public class SupremaciaGUI extends JFrame {
             }
 
         });
-        iniciarPartidaButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String rodadas = JOptionPane.showInputDialog("Deseja configurar um numero de rodadas máxima? Caso sim, digite o valor: ");
-                Tabuleiro tabuleiro = new Tabuleiro();
-                tabuleiro.setJogoEmProgresso(true);
-                if (!rodadas.equals("")){
-                    tabuleiro.setMaxRodadas(Integer.parseInt(rodadas));
-                }
-                PApplet.main("Game.UsingProcessing");
+        iniciarPartidaButton.addActionListener(e -> {
+            String rodadas = JOptionPane.showInputDialog("Deseja configurar um numero de rodadas máxima? Caso sim, digite o valor: ");
+            Tabuleiro tabuleiro = new Tabuleiro();
+            tabuleiro.setJogoEmProgresso(true);
+            if (!rodadas.equals("")){
+                tabuleiro.setMaxRodadas(Integer.parseInt(rodadas));
             }
+            PApplet.main("Game.UsingProcessing");
         });
-        desconectarButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null,"Desconectado");
-            }
-        });
+        desconectarButton.addActionListener(e -> JOptionPane.showMessageDialog(null,"Desconectado"));
     }
 
 
