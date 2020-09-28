@@ -32,7 +32,7 @@ public class SupremaciaGUI extends JFrame {
                 JOptionPane.showMessageDialog(null,"Voce ja esta conectado");
             }
 
-        });
+        }); /*
         iniciarPartidaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -45,6 +45,7 @@ public class SupremaciaGUI extends JFrame {
                 PApplet.main("Game.UsingProcessing");
             }
         });
+        */
         desconectarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
