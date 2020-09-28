@@ -10,9 +10,9 @@ public class UsingProcessing extends PApplet {
 	PImage mapa;
     // The argument passed to main must match the class name
     public static void main(String[] args) {
-        PApplet.main("Game.UsingProcessing");
-//        JFrame frame = new SupremaciaGUI("Supremacia");
-//        frame.setVisible(true);
+//        PApplet.main("Game.UsingProcessing");
+        JFrame frame = new SupremaciaGUI("Supremacia");
+        frame.setVisible(true);
     }
 
     // method used only for setting the size of the window
