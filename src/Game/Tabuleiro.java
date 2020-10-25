@@ -1,7 +1,11 @@
 package Game;
 
+import java.applet.Applet;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import javax.imageio.ImageIO;
 
 import Combat.Tropa;
 import Land.MarAzulClaro;
@@ -22,10 +26,20 @@ public class Tabuleiro {
     public Tabuleiro(PApplet p){
     	this.p = p;
     }
+    public PImage getImage(String url) throws Exception {
+        BufferedImage image = ImageIO.read(this.getClass().getResourceAsStream(url));
+        return new PImage(image);
+    }
 
     // identical use to setup in Processing IDE except for size()
     public void start(){
-    	this.mapa = this.p.loadImage("supremacymap.png");
+    	try {
+    		System.out.println("getting image");
+			this.mapa = this.getImage("/Economy/supremacymap.png");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         p.image(this.mapa, 0, 0);
         // South America
         setupSouthAmerica();
@@ -683,4 +697,9 @@ public class Tabuleiro {
         territorios.add(greatAusBlight);
 
     }
+	public boolean encerrarPartida() {
+		return true;
+		// TODO Auto-generated method stub
+		
+	}
 }

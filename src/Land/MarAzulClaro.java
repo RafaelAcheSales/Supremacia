@@ -6,7 +6,6 @@ import processing.core.PVector;
 import java.util.ArrayList;
 
 import Combat.Tropa;
-import Game.Jogador;
 
 public class MarAzulClaro extends Territorio{
 //    Apenas um ocupante por vez

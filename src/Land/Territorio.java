@@ -135,7 +135,7 @@ public class Territorio {
 	}
 
 	public ArrayList<Tropa> getOcupantes() {
-		return (ArrayList<Tropa>) this.ocupantes.clone();
+		return this.ocupantes;
 	}
 
 	public void addOcupantes(ArrayList<Tropa> ocupantes) {

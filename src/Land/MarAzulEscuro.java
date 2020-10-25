@@ -1,13 +1,11 @@
 package Land;
 
 import processing.core.PApplet;
-import processing.core.PConstants;
 import processing.core.PVector;
 
 import java.util.ArrayList;
 
 import Combat.Tropa;
-import Game.Jogador;
 
 public class MarAzulEscuro extends Territorio{
     private PVector pos2;
