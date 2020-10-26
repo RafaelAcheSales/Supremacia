@@ -68,7 +68,6 @@ public class SupremaciaGUI extends JFrame {
     	Tabuleiro tabuleiro = new Tabuleiro(null);
     	PApplet.main("Game.UsingProcessing");
         tabuleiro.setJogoEmProgresso(true);
-    	
     }
     public void desconectar() {
     	System.out.println("desconnect");
