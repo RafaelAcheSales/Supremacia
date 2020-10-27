@@ -4,8 +4,6 @@ import processing.core.PApplet;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import Rede.NetGames;
 public class SupremaciaGUI extends JFrame {
     /**
